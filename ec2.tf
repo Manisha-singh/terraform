@@ -59,7 +59,6 @@ resource "aws_instance" "instance1" {
                   #!/bin/bash
                   sudo su
                   yum -y install httpd git
-                  echo "<p> My Instance! </p>" >> /var/www/html/index.html
                   sudo systemctl enable httpd
                   sudo systemctl start httpd
                   EOF
@@ -117,7 +116,7 @@ POLICY
 resource "aws_s3_bucket_object" "bucket" {
   bucket = "manisha77"
   key = "manisha.png"
-  source = "C:/Users/RAM BABU SINGH/OneDrive/Pictures/Saved Pictures/manisha.jpg"
+  source = "C:/Users/Manisha/OneDrive/Pictures/Saved Pictures/manisha.jpg"
 }
 locals {
   s3_origin_id = "myS3Origin"
@@ -186,7 +185,7 @@ depends_on = [
   connection {
     type     = "ssh"
     user     = "ec2-user"
-    private_key =file("C:/Users/RAM BABU SINGH/Downloads/keypair.pem") 
+    private_key =file("C:/Users/Manisha/Downloads/keypair.pem") 
     host     = aws_instance.instance1.public_ip
   }
 
